@@ -1,7 +1,22 @@
 en:
+  base_link: "Framgia E-Learning System"
+  nav:
+    home: "Home"
+    log_in: "Log in"
+    log_out: "Log out"
+  sign_in_message: "Please sign in!"
+  session:
+    submit: "Sign In"
+    signup_link: "Sign up!"
+  sessions:
+    create:
+      success: "Successfully logged in!"
+      danger: "Invalid email or password combination"
   users:
     create:
-      notice: "Your account was successfully created."
+      success: "Your account was successfully created."
+    update:
+      success: "Profile updated"
   helpers:
     submit:
       create: "Create %{model}"
