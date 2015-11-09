@@ -6,6 +6,7 @@ capybara-*.html
 .rvmrc
 /.bundle
 /vendor/bundle
+/Gemfile.lock
 /log/*
 /tmp/*
 /test/*
