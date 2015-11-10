@@ -5,17 +5,12 @@
     <thead>
       <tr>
         <th>Name</th>
-        <th colspan="2"></th>
-      </tr>	
+      </tr>
     </thead>
     <% @categories.each do |category|%>
       <tr>
         <td><%= category.name%></td>
-        <td><%= link_to t('form.edit'),edit_admin_category_path(category)%></td>
-        <td><%= link_to t('form.delete'),admin_category_path(category),method: :delete,data: {confirm: t('delete.confirmation')}%></td>
       </tr>
-    <% end %>	
+    <% end %>
   </table>
-  <br>
-    <%= link_to t('form.create'),new_admin_category_path,class: "btn btn-primary"%>	
-</div>	
+</div>

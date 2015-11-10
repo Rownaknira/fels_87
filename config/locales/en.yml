@@ -47,6 +47,7 @@ en:
   helpers:
     submit:
       create: "Create %{model}"
+      edit: "Update %{model}"
       user:
         create: "Sign Up!"
   form:
@@ -57,9 +58,17 @@ en:
   history:
     back: "Go Back"
   category:
-    edit: "Update Category"
+    edit: "Edit Category"
     new: "Add Category"
     list: "Listing of Categories"
     show: "Category"
   delete:
     confirmation: "Are you sure you want to delete?"
+  word:
+    edit: "Update Word"
+    new: "Add Word"
+    list: "Listing of words"
+    select_list: "Select a category"
+    title_new: "New Word"
+    title_edit: "Edit Word"
+    answer: "Answer"

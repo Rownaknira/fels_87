@@ -1,0 +1,29 @@
+<% provide(:title,t('word.title_edit'))%>
+<div class="row">
+  <h1><%= t('word.edit')%></h1>
+  <br>
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for [:admin, @word] do |f|%>
+      <div class="form-group">
+        <%= f.label :category%>
+        <%= f.collection_select :category_id, Category.all, :id, :name, {prompt: t('word.select_list')}, {class: "form-control"} %>
+      </div>
+      <div class="form-group">
+        <%= f.label :content%>
+        <%= f.text_field :content,class: 'form-control'%>
+      </div>
+      <%= f.label :content , t('word.answer')%>
+      <%= f.fields_for :answers do |word_answer_form| %>
+      <div class="form-group">
+        <%= word_answer_form.text_field :content ,class: 'form-control'%>
+          <div class="radio">
+            <%= word_answer_form.radio_button :correct, true %>
+            <%= word_answer_form.label :correct %>
+          </div>
+        <% end %>
+      </div>
+      <br>
+      <%= f.submit class: "btn btn-primary"%>
+    <% end %>
+  </div>
+</div>
