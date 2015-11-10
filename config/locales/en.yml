@@ -6,6 +6,12 @@ en:
     log_in: "Log in"
     log_out: "Log out"
   sign_in_message: "Please sign in!"
+  follow_message: "You already follow!"
+  Unfollow_message: "You already Unfollow!"
+  Following_title: "Following"
+  Followers_title: "Followers"
+  Follow_link: "Follow"
+  UnFollow_link: "Unfollow"
   session:
     h1: "Log in"
     submit: "Sign In"
@@ -17,11 +23,20 @@ en:
   staticpage:
     h1_title: "Welcome to e-Learning System"
     h2_body: "This is the home page for the Framgia e-learning System"
+    viewlink: "view my profile"
+    h3_title: "Activity Feed"
   user:
     h1_signup: "Sign Up"
     h1_update: "Update your profile"
     h1_alluser: "All Users"
     delete: "Delete"
+    activity_title: "Activities"
+  admin:
+    users:
+      update:
+        success: "Profile updated"
+      destroy:
+        success: "User deleted"
   users:
     create:
       success: "Your account was successfully created."

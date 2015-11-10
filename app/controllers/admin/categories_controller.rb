@@ -1,6 +1,6 @@
 class Admin::CategoriesController < ApplicationController
   def new
-    @category = Category.new	
+    @category = Category.new
   end
   def create
     @category = Category.new category_params
@@ -8,7 +8,7 @@ class Admin::CategoriesController < ApplicationController
       redirect_to categories_path
     else
       render 'new'
-    end    
+    end
   end
   def edit
     @category = Category.find params[:id]
@@ -19,7 +19,7 @@ class Admin::CategoriesController < ApplicationController
       redirect_to categories_path
     else
       render 'edit'
-    end    
+    end
   end
   def destroy
     Category.find(params[:id]).destroy
