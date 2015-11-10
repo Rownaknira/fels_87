@@ -1,14 +1,16 @@
 <header	class="navbar	navbar-fixed-top	navbar-inverse">
   <div	class="container">
-	  <nav>
-      <ul	class="nav	navbar-nav	navbar-right">
-			  <% if logged_in? %>
-			    <li><%=	link_to	t('nav.log_out'),	logout_path, method: :delete	%></li>
-			    <% else %>
-				  <li><%=	link_to	t('nav.home'),  root_path	%></li>
-				  <li><%=	link_to	t('nav.log_in'),  login_path	%></li>
-					<% end %>
-			</ul>
-		</nav>
-	</div>
+      <nav>
+      <ul	class="nav navbar-nav	navbar-right">
+          <% if logged_in? %>
+          <li><%= link_to t('nav.home'),  root_path %></li>
+          <li><%= link_to t('nav.users'), users_path %></li>
+          <li><%= link_to t('nav.log_out'), logout_path, method: :delete %></li>
+          <% else %>
+          <li><%= link_to t('nav.home'),  root_path %></li>
+          <li><%= link_to t('nav.log_in'),  login_path %></li>
+          <% end %>
+        </ul>
+      </nav>
+    </div>
 </header>
