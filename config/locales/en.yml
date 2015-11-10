@@ -34,3 +34,17 @@ en:
       create: "Create %{model}"
       user:
         create: "Sign Up!"
+  form:
+    create: "Create New"
+    update: "Save Changes"
+    edit: "Edit"
+    delete: "Delete"
+  history:
+    back: "Go Back"
+  category:
+    edit: "Update Category"
+    new: "Add Category"
+    list: "Listing of Categories"
+    show: "Category"
+  delete:
+    confirmation: "Are you sure you want to delete?"
