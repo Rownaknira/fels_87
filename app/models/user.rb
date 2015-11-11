@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_many :lessons, through: :activities
+  has_many :categories, through: :activities
   has_many :activities, dependent: :destroy
   acts_in_relation role: :self, action: :follow
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i

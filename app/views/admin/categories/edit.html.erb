@@ -1,4 +1,4 @@
-<% provide(:title,"Update Category")%>
+<% provide(:title,t('category.edit'))%>
 <div class="row">
   <h1><%= t('category.edit')%></h1>
   <br>
@@ -9,7 +9,7 @@
         <%= f.text_field :name,class: 'form-control'%>
       </div>
       <br>
-      <%= f.submit t("form.update"),class: "btn btn-primary"%>	
-      <% end %>
+      <%= f.submit class: "btn btn-primary"%>
+    <% end %>
   </div>
 </div>
