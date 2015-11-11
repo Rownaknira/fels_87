@@ -1,31 +1,17 @@
-class UsersController < ApplicationController
+class Admin::UsersController < ApplicationController
   include SessionsHelper
   include UsersHelper
   before_action :load_user, only: [:show, :edit, :update, :destroy]
-  before_action :logged_in_user,  only: [:index, :edit, :update, :destroy,
-                                        :following, :followers]
+  before_action :logged_in_user
+  before_action :admin_user, only: [:index, :destroy, :edit, :update]
   before_action :correct_user,  only: [:edit, :update]
-  before_action :admin_user, only: :destroy
+
   def index
     @users = User.paginate page: params[:page]
   end
 
   def show
     @activities = @user.activities.paginate page: params[:page]
-  end
-
-  def new
-    @user = User.new
-  end
-
-  def create
-    @user = User.new user_params
-    if @user.save
-      flash[:success] = t '.success'
-      redirect_to @user
-    else
-      render :new
-    end
   end
 
   def edit
@@ -40,11 +26,12 @@ class UsersController < ApplicationController
     end
   end
 
-  def destroy
+  def	destroy
     @user.destroy
     flash[:success] = t '.success'
-    redirect_to users_url
+    redirect_to admin_users_url
   end
+
 
   private
   def user_params

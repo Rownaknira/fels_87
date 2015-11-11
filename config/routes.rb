@@ -7,9 +7,10 @@ Rails.application.routes.draw do
   delete 'logout'  =>  'sessions#destroy'
   get 'signup'  =>  'users#new'
   resources :users
-
   resources :categories,only: [:index]
+  resources :follows, only: [:update, :destroy]
   namespace :admin do
     resources :categories,only: [:new, :create, :edit, :update, :destroy]
+    resources :users, except: [:new, :create]
   end
 end
