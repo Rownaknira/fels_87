@@ -1,5 +1,4 @@
 class Admin::WordsController < ApplicationController
-  include WordsHelper
   before_action :load_word, only: [:edit, :update, :destroy]
   before_action :admin_user, only: [:edit, :update, :new, :create, :destroy]
 
@@ -40,5 +39,9 @@ class Admin::WordsController < ApplicationController
   private
   def word_params
     params.require(:word).permit :category_id, :content, answers_attributes: [ :content, :correct]
+  end
+
+  def load_word
+    @word = Word.find params[:id]
   end
 end

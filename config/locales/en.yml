@@ -89,3 +89,19 @@ en:
   category_user:
     show_url: "Show"
     all: "All Categories"
+    learn: "Learned"
+    not_learn: "Not Learned"
+    all: "All"
+    res: "Result"
+    meaning: "Meaning"
+    found: "found !"
+    th_word: "Word"
+  lesson:
+    start_lesson: "Start Lesson"
+  header:
+    cat_list: "Category List"
+    cat_new: "New Category"
+    word_list: "Word List"
+    word_new: "New Word"
+  filter:
+    filt_name: "Filter"

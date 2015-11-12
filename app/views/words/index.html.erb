@@ -1,23 +1,39 @@
-<div class="row">
-  <h1><%= t('word.list')%></h1>
-  <br>
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>Category</th>
-        <th>Content</th>
-        <th colspan="2"></th>
-      </tr>
-    </thead>
-    <% @words.each do |word|%>
-      <tr>
-        <td><%= word.category.name%></td>
-        <td><%= word.content%></td>
-        <td><%= link_to t('form.edit'),edit_admin_word_path(word)%></td>
-        <td><%= link_to t('form.delete'),admin_word_path(word),method: :delete,data: {confirm: t('delete.confirmation')}%></td>
-      </tr>
+<% provide :title, t('header.word_list') %>
+<div id="word_list">
+  <div class="span12 offset1">
+    <%= form_tag words_path, {method: :get} do %>
+      <div>
+        <span><%= t('category.show') %></span>
+        <%= select_tag "category_id", options_from_collection_for_select(Category.all, "id", "name",selected: params[:category_id]), { prompt: t('word.select_list') }%>
+      </div>
+      <div class="radio">
+        <%= radio_button_tag "learn", "learned", params[:learn] == "learned" %>
+        <span><%= t('word.learn') %></span></div>
+      <div class="radio">
+        <%= radio_button_tag "learn", "not_learn", params[:learn] == "not_learn" %>
+        <span><%= t('word.not_learn') %></span></div>
+      <div class="radio">
+        <%= radio_button_tag "learn", "all", params[:learn] == "all" || params[:learn].blank? %>
+        <span><%= t('word.all') %></span>
+      </div>
+      <div><%= submit_tag t('filter.filt_name'), class: "btn btn-primary", name: nil %></div>
     <% end %>
-  </table>
+  </div>
   <br>
-  <%= link_to t('form.create'),new_admin_word_path,class: "btn btn-primary"%>	
+  <br>
+  <div class="span10 offset1">
+    <table class="table">
+      <%= will_paginate @words %>
+      <caption><b><%= t('category_user.res')%>: <%= pluralize @words.count, "word" %> <%= t('category_user.found') %></b></caption>
+      <thead>
+        <tr>
+          <th><%= t('category_user.th_word')%></th>
+          <th><%= t('category_user.meaning')%></th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render @words %>
+      </tbody>
+    </table>
+  </div>
 </div>

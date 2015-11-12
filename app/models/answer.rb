@@ -3,5 +3,5 @@ class Answer < ActiveRecord::Base
   has_many :results
   validates :content,  presence: true
 
-  scope :corrected, -> { where("correct = true").first }
+  scope :corrected, -> { where(correct: true).first }
 end
