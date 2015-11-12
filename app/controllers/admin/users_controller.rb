@@ -9,7 +9,7 @@ class Admin::UsersController < ApplicationController
   end
 
   def show
-    @activities = @user.activities.paginate page: params[:page]
+    @lessons = @user.lessons.paginate page: params[:page]
   end
 
   def edit

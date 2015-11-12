@@ -1,0 +1,8 @@
+<h3><%= category.name %></h3>
+<label>You have learned <%= "#{category.lessons.learned_word(current_user).count}"%>/ <%="#{category.words.count}"%></label>
+<% if category.words.any? %>
+  <%= form_for category.lessons.build do |f| %>
+    <%= f.hidden_field :category_id %>
+    <%= f.submit t('lesson.start'), class: "btn btn-medium btn-default" %>
+  <% end %>
+<% end %>

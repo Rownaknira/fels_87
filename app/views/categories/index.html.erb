@@ -1,16 +1,4 @@
-<div class="row">
-  <h1><%= t('category.list')%></h1>
-  <br>
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>Name</th>
-      </tr>
-    </thead>
-    <% @categories.each do |category|%>
-      <tr>
-        <td><%= category.name%></td>
-      </tr>
-    <% end %>
-  </table>
+<% provide :title, t('category_user.all') %>
+<div id="categories" class="span10 offset1">
+  <%= render @categories %>
 </div>
