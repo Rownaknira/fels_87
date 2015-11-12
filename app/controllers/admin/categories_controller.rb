@@ -2,7 +2,7 @@ class Admin::CategoriesController < ApplicationController
   include CategoriesHelper
   before_action :load_category, only: [:edit, :update, :destroy]
   before_action :admin_user, only: [:edit, :update, :new, :create, :destroy]
-  
+
   def index
     @categories = Category.all
   end
@@ -17,7 +17,7 @@ class Admin::CategoriesController < ApplicationController
       redirect_to admin_categories_path
     else
       render :new
-    end    
+    end
   end
 
   def edit

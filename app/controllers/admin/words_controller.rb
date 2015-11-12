@@ -18,7 +18,7 @@ class Admin::WordsController < ApplicationController
       redirect_to admin_words_path
     else
       render :new
-    end 
+    end
   end
 
   def edit
@@ -29,7 +29,7 @@ class Admin::WordsController < ApplicationController
       redirect_to admin_words_path
     else
       render :edit
-    end    
+    end
   end
 
   def destroy

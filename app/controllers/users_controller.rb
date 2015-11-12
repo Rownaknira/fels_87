@@ -1,6 +1,4 @@
 class UsersController < ApplicationController
-  include SessionsHelper
-  include UsersHelper
   before_action :load_user, only: [:show, :edit, :update, :destroy]
   before_action :logged_in_user,  only: [:index, :edit, :update, :destroy,
                                         :following, :followers]
@@ -11,7 +9,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @activities = @user.activities.paginate page: params[:page]
+    @lessons = @user.lessons.paginate page: params[:page]
   end
 
   def new
