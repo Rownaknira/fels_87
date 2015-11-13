@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get 'signup'  =>  'users#new'
   resources :users
   resources :categories,only: [:index]
+  resources :lessons, only: [:show, :create, :update]
+
   resources :follows, only: [:update, :destroy]
   namespace :admin do
     resources :users, except: [:new, :create]

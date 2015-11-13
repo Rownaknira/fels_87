@@ -1,0 +1,10 @@
+<li class="lesson">
+  <span class="user"><%= link_to lesson.user.username, lesson.user %></span>
+  <span class="content">
+    <%=t('lesson.learn') pluralize lesson.results.answer_not_nil.count, t('word.word') %>
+    in <i><%= lesson.category.name %></i>
+  </span>
+  <span class="timestamp">
+    <%= time_ago_in_words lesson.created_at %> ago.
+  </span>
+</li>
