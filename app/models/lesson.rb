@@ -5,10 +5,13 @@ class Lesson < ActiveRecord::Base
   has_many :words, through: :results
 
   accepts_nested_attributes_for :results
-  before_create: create_results
+  before_create :create_results
   before_update :update_result
   validates :progress,  presence: true, numericality: { greater_than_or_equal_to: 0 }
 
+  scope :learned_words, ->(user_id) do
+    lesson_word_ids = Lesson.joins(:results).select(:word_id).where("results.user_id = ? ",user_id)
+  end
   private
   def create_results
     @unique_word = lesson.category.words.order("RAND()").limit 20

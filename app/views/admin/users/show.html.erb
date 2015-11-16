@@ -10,12 +10,12 @@
     </section>
   </aside>
   <div class="col-md-8">
-    <% if @user.activities.any? %>
-      <h3><%= t('user.activity_title')%> (<%= @user.activities.count %>)</h3>
+    <% if @user.lessons.any? %>
+      <h3><%= t('user.activity_title')%> <%= @user.lessons.count %></h3>
       <ol class="activities">
-        <%= render @activities %>
+        <%= render @lessons %>
       </ol>
-      <%= will_paginate @activities %>
+      <%= will_paginate @lessons %>
     <% end %>
   </div>
 </div>
