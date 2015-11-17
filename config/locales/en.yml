@@ -77,6 +77,7 @@ en:
     learn: "Learn"
     lesson: "Lesson"
     start: "Start Lesson"
+    learn_status: "You have learned"
   word:
     word: "Word"
     edit: "Update Word"
@@ -96,8 +97,6 @@ en:
     meaning: "Meaning"
     found: "found !"
     th_word: "Word"
-  lesson:
-    start_lesson: "Start Lesson"
   header:
     cat_list: "Category List"
     cat_new: "New Category"
