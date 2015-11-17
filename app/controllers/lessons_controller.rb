@@ -11,7 +11,7 @@ class LessonsController < ApplicationController
 
   def create
     category = Category.find params[:lesson][:category_id]
-    @lesson = category.lessons.create user_id: current_user.id
+    @lesson = category.lessons.create lesson_param
     redirect_to @lesson
   end
 
