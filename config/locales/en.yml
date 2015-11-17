@@ -87,12 +87,12 @@ en:
     title_new: "New Word"
     title_edit: "Edit Word"
     answer: "Answer"
-  category_user:
-    show_url: "Show"
-    all: "All Categories"
     learn: "Learned"
     not_learn: "Not Learned"
     all: "All"
+  category_user:
+    show_url: "Show"
+    all: "All Categories"
     res: "Result"
     meaning: "Meaning"
     found: "found !"
@@ -104,3 +104,10 @@ en:
     word_new: "New Word"
   filter:
     filt_name: "Filter"
+  result:
+    showing: "showing Result"
+    correct: "Correct"
+    original: "Original Word"
+    meaning: "Meaning of Word"
+    answer: "Your Answer"
+    result: "Result"

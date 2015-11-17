@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :categories,only: [:index]
   resources :lessons, only: [:show, :create, :update, :index]
   resources :words,only: [:index]
+  resources :results
   resources :follows, only: [:update, :destroy]
   resources :activities
 
