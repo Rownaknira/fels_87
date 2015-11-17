@@ -9,10 +9,10 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000" data-close-others="false">Category <b class="caret"></b></a>
             <ul>
               <% if current_user.admin? %>
-                <li><%= link_to "Category List",admin_categories_path,tabindex: "-1"%></li>
-                <li><%= link_to "New Category",new_admin_category_path,tabindex: "-1"%></li>
+                <li><%= link_to t('header.cat_list'),admin_categories_path,tabindex: "-1"%></li>
+                <li><%= link_to t('header.cat_new'),new_admin_category_path,tabindex: "-1"%></li>
               <% else %>
-                <li><%= link_to "Category List",categories_path,tabindex: "-1"%></li>
+                <li><%= link_to t('header.cat_list'),categories_path,tabindex: "-1"%></li>
               <% end %>
             </ul>
           </li>
@@ -20,11 +20,13 @@
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000" data-close-others="false">Word <b class="caret"></b></a>
               <ul>
-                <li><%= link_to "Word List", admin_words_path,:tabindex => "-1"%></li>
-                <li><%= link_to "New Word", new_admin_word_path,:tabindex => "-1"%></li>
+                <li><%= link_to t('header.word_list'), admin_words_path,:tabindex => "-1"%></li>
+                <li><%= link_to t('header.word_new'), new_admin_word_path,:tabindex => "-1"%></li>
               </ul>
             </li>
-          <% end %>
+          <% else %>
+            <li><%= link_to t('header.word_list'), words_path%></li>
+          <% end %> 
           <li><%= link_to t('nav.log_out'), logout_path, method: :delete %></li>
         <% else %>
           <li><%= link_to t('nav.home'), root_path %></li>

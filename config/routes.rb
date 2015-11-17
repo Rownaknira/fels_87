@@ -7,9 +7,10 @@ Rails.application.routes.draw do
   resources :users
   resources :categories,only: [:index]
   resources :lessons, only: [:show, :create, :update, :index]
-
+  resources :words,only: [:index]
   resources :follows, only: [:update, :destroy]
   resources :activities
+
   namespace :admin do
     resources :users, except: [:new, :create]
     resources :categories,only: [:new, :create, :edit, :update, :destroy, :index]

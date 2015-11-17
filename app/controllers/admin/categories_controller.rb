@@ -1,5 +1,4 @@
 class Admin::CategoriesController < ApplicationController
-  include CategoriesHelper
   before_action :load_category, only: [:edit, :update, :destroy]
   before_action :admin_user, only: [:edit, :update, :new, :create, :destroy]
 
@@ -39,5 +38,9 @@ class Admin::CategoriesController < ApplicationController
   private
   def category_params
     params.require(:category).permit :name
+  end
+
+  def load_category
+    @category = Category.find params[:id]
   end
 end
