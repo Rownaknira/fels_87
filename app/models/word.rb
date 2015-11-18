@@ -3,10 +3,9 @@ class Word < ActiveRecord::Base
   has_many :answers, dependent: :destroy
   has_one :result, dependent: :destroy
   accepts_nested_attributes_for :answers, allow_destroy: true
-  
   validates_presence_of :content, :category_id
 
-  sub_query_learned_by = "select DISTINCT word_id from results as rs, lessons as ls where ls.id=rs.lesson_id 
+  sub_query_learned_by = "select DISTINCT word_id from results as rs, lessons as ls where ls.id=rs.lesson_id
                           and ls.user_id = ? and rs.answer_id <> ''"
 
   scope :learned, -> (user_id,category_id) do
