@@ -1,0 +1,33 @@
+<% provide :title, t('result.showing') %>
+<div class="row">
+  <div class="span8 offset2">
+    <% @lessons.each do |lesson| %>
+      <div>
+        <label><h3><%= "#{lesson.category.name}"%>  <%= t('result.result')%></h3></label>  <%= lesson.results.total_learned_words(lesson.id).count%>/<%= "#{lesson.results.count}"%>
+        <br><br>
+        <div>
+          <table class="table">
+            <thead>
+              <tr>
+                <th><%= t('result.correct')%></th>
+                <th><%= t('result.original')%></th>
+                <th><%= t('result.meaning')%></th>
+                <th><%= t('result.answer')%></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% lesson.results.each do |result| %>
+              <tr>
+                <td><%= result.answer.try(:correct?)%></td>
+                <td><%= result.word.content%></td>
+                <td><%= result.word.answers.corrected.content%></td>
+                <td><%= result.answer.content%></td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

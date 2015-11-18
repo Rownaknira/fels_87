@@ -7,8 +7,9 @@ class Lesson < ActiveRecord::Base
   before_update :update_result
 
   scope :learned_words, ->(user_id) do
-    lesson_word_ids = Lesson.joins(:results).select(:word_id).where("results.user_id = ? ",user_id)
+    result_ids = Lesson.joins(:results).select(:word_id).where("lessons.user_id = ? ",user_id)
   end
+
   private
   def create_results
     unique_word = category.words.order("RANDOM()").limit 20
@@ -19,6 +20,6 @@ class Lesson < ActiveRecord::Base
   def update_result
     self.progress = results.select do|result|
     result.answer.try(:correct?)
-    end
+    end.count
   end
 end
