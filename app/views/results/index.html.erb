@@ -1,9 +1,11 @@
 <% provide :title, t('result.showing') %>
+<center><h3 class="text-uppercase"><strong><%= t('result.result')%></strong></h3></center>
+<br>
 <div class="row">
   <div class="span8 offset2">
     <% @lessons.each do |lesson| %>
       <div>
-        <label><h3><%= "#{lesson.category.name}"%>  <%= t('result.result')%></h3></label>  <%= lesson.results.total_learned_words(lesson.id).count%>/<%= "#{lesson.results.count}"%>
+        <label><h3 class="text-capitalize"><%= "#{lesson.category.name}"%>  <%= t('result.result')%></h3></label> <small><%= lesson.results.total_learned_words(lesson.id).count%>/<%= "#{lesson.results.count}"%></small>
         <br><br>
         <div>
           <table class="table">
@@ -18,10 +20,16 @@
             <tbody>
               <% lesson.results.each do |result| %>
               <tr>
-                <td><%= result.answer.try(:correct?)%></td>
+                <td>
+                  <% if result.answer.try(:correct?)%>
+                    <i class="glyphicon glyphicon-ok"></i>
+                  <% else %>
+                    <i class="glyphicon glyphicon-remove"></i>
+                  <% end %>
+                </td>
                 <td><%= result.word.content%></td>
                 <td><%= result.word.answers.corrected.content%></td>
-                <td><%= result.answer.content%></td>
+                <td><%= result.answer.try(:content)%></td>
               </tr>
               <% end %>
             </tbody>

@@ -2,7 +2,7 @@
 <div class="row">
   <div class="col-md-8">
     <div class="title">
-      <h2><%= @lesson.category.name %></h2>
+      <h3 class="text-center text-capitalize"><strong><%= @lesson.category.name %></strong></h3>
       <h4 class="count alert alert-info"></h4>
     </div>
     <%= form_for @lesson do |f| %>
@@ -11,13 +11,13 @@
           <h3><%= ff.object.word.content %></h3>
           <%= ff.collection_radio_buttons :answer_id, ff.object.word.answers,
                                           :id, :content do |rb| %>
-            <%= rb.label(class: "radio"){rb.radio_button + rb.text} %>
+            <%= rb.label(class: "radio lesson_radio"){rb.radio_button + rb.text} %>
           <% end %>
         </div>
       <% end %>
       <p><%= link_to t("nav.next"), "", class: "btn btn-primary choose" %></p>
       <p class="alert alert-success alert-submit">If you want to submit your answer now, click here:</p>
-      <%= f.submit t("nav.submit_answer"), class: "btn btn-primary submit-answer" %>
+      <%= f.submit t("nav.submit_answer"), class: "btn btn-primary submit-answer submit_button" %>
     <% end %>
   </div>
 </div>

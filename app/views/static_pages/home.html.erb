@@ -1,12 +1,14 @@
 <% if logged_in? %>
   <div class="row">
     <aside class="col-md-4">
+      <blockquote>
       <section class="user_info">
         <%= render 'shared/user_info' %>
       </section>
       <section class="stats">
         <%= render 'shared/stats' %>
       </section>
+    </blockquote>
     </aside>
     <div class="col-md-8">
       <h3><%= t('staticpage.h3_title') %></h3>

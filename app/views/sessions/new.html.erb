@@ -11,9 +11,9 @@
       <%= f.password_field :password, class: 'form-control' %>
 
 
-      <%= f.submit t('session.submit'), class: "btn btn-primary" %>
+      <%= f.submit t('session.submit'), class: "btn btn-primary submit_button" %>
     <% end %>
-
-    <p>New user? <%= link_to t('session.signup_link'), signup_path %></p>
+    <br>
+    <center><p>New user? <%= link_to t('session.signup_link'), signup_path %></p></center>
   </div>
 </div>

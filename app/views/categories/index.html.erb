@@ -1,4 +1,6 @@
 <% provide :title, t('category_user.all') %>
+<center><h3 class="text-capitalize"><strong><%= t('category.list') %></strong></h3></center>
+<%= will_paginate %>
 <div id="categories" class="span10 offset1">
   <%= render @categories %>
 </div>

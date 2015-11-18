@@ -3,6 +3,8 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.4'
 # Use sqlite3 as the database for Active Record
 # Use SCSS for stylesheets
+gem 'bootstrap-sass', '3.2.0.0'
+
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -10,7 +12,6 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
-gem	'bootstrap-sass',	'3.2.0.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
@@ -24,23 +25,23 @@ gem 'acts_in_relation'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
-gem 'will_paginate',  '3.0.7'
-gem	'bootstrap-will_paginate',	'0.0.10'
+gem 'will_paginate', '3.0.7'
+gem 'bootstrap-will_paginate', '0.0.10'
 
-gem	'faker',  '1.4.2'
+gem 'faker', '1.4.2'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-group	:development,	:test	do
-  gem	'sqlite3',					'1.3.9'
-  gem	'byebug',						'3.4.0'
-  gem	'web-console',	'2.0.0.beta3'
-  gem	'spring',						'1.1.3'
+group :development, :test do
+  gem 'sqlite3', '1.3.9'
+  gem 'byebug', '3.4.0'
+  gem 'web-console', '2.0.0.beta3'
+  gem 'spring', '1.1.3'
 end
-group	:production	do
-  gem	'pg',			'0.17.1'
-  gem	'rails_12factor',	'0.0.2'
+group :production do
+  gem 'pg', '0.17.1'
+  gem 'rails_12factor', '0.0.2'
 end

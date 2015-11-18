@@ -14,16 +14,16 @@
       </div>
       <%= f.label :content , t('word.answer')%>
       <%= f.fields_for :answers do |word_answer_form| %>
-      <div class="form-group">
-        <%= word_answer_form.text_field :content ,class: 'form-control'%>
-          <div class="radio">
+        <div class="input-group">
+          <span class="input-group-addon">
             <%= word_answer_form.radio_button :correct, true %>
             <%= word_answer_form.label :correct %>
-          </div>
-        <% end %>
-      </div>
+          </span>
+          <%= word_answer_form.text_field :content ,class: 'form-control'%>
+        </div>
+      <% end %>
       <br>
-      <%= f.submit class: "btn btn-primary"%>
+      <%= f.submit class: "btn btn-primary submit_button"%>
     <% end %>
   </div>
 </div>

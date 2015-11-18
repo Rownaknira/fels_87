@@ -1,28 +1,32 @@
 <% provide :title, t('header.word_list') %>
 <div id="word_list">
-  <div class="span12 offset1">
+  <div class="span12 offset1 center_div form-inline">
     <%= form_tag words_path, {method: :get} do %>
-      <div>
-        <span><%= t('category.show') %></span>
-        <%= select_tag "category_id", options_from_collection_for_select(Category.all, "id", "name",selected: params[:category_id]), { prompt: t('word.select_list') }%>
+      <div class="form-group">
+        <label><%= t('category.show') %> :</label>
+        <%= select_tag "category_id", options_from_collection_for_select(Category.all, "id", "name",selected: params[:category_id]), { prompt: t('word.select_list'), class: 'form-control'}%>
       </div>
-      <div class="radio">
+      <div class="form-group text_align">
         <%= radio_button_tag "learn", "learned", params[:learn] == "learned" %>
-        <span><%= t('word.learn') %></span></div>
-      <div class="radio">
-        <%= radio_button_tag "learn", "not_learn", params[:learn] == "not_learn" %>
-        <span><%= t('word.not_learn') %></span></div>
-      <div class="radio">
-        <%= radio_button_tag "learn", "all", params[:learn] == "all" || params[:learn].blank? %>
-        <span><%= t('word.all') %></span>
+        <label><%= t('word.learn') %></label>
       </div>
-      <div><%= submit_tag t('filter.filt_name'), class: "btn btn-primary", name: nil %></div>
+      <div class="form-group text_align">
+        <%= radio_button_tag "learn", "not_learn", params[:learn] == "not_learn" %>
+        <label><%= t('word.not_learn') %></label>
+      </div>
+      <div class="form-group text_align">
+        <%= radio_button_tag "learn", "all", params[:learn] == "all" || params[:learn].blank? %>
+        <label><%= t('word.all') %></label>
+      </div>
+      <div class="form-group"><%= submit_tag t('filter.filt_name'), class: "btn btn-primary btn-sm filter_button", name: nil %>
+      </div>
     <% end %>
   </div>
-  <br>
-  <br>
+</div>
+<br>
+<br>
   <div class="span10 offset1">
-    <table class="table">
+    <table class="table table-striped">
       <%= will_paginate @words %>
       <caption><b><%= t('category_user.res')%>: <%= pluralize @words.count, "word" %> <%= t('category_user.found') %></b></caption>
       <thead>

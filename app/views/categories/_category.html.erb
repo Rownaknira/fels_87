@@ -1,9 +1,11 @@
-<h3><%= category.name %></h3>
-<label><%= t('lesson.learn_status')%> <%="#{category.lessons.learned_words(current_user).count}"%>/ <%="#{category.words.count}"%></label>
+<h3 class="text-capitalize"><strong><%= category.name %></strong></h3>
+<blockquote>
+<h5><%= t('lesson.learn_status')%> <%="#{category.words.learned(current_user,category.id).count}"%>/ <%="#{category.words.count}"%></h5>
 <% if category.words.any? %>
   <%= form_for category.lessons.build do |f| %>
     <%= f.hidden_field :category_id %>
-    <%= f.submit t('lesson.start'), class: "btn btn-medium btn-default" %>
+    <%= f.submit t('lesson.start'), class: "btn btn-medium btn-primary btn-sm" %>
   <% end %>
 <% end %>
+</blockquote>
 <hr />

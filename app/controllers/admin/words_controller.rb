@@ -3,7 +3,7 @@ class Admin::WordsController < ApplicationController
   before_action :admin_user, only: [:edit, :update, :new, :create, :destroy]
 
   def index
-    @words = Word.all
+    @words = Word.all.paginate page: params[:page], per_page: 20
   end
 
   def new
@@ -38,7 +38,7 @@ class Admin::WordsController < ApplicationController
 
   private
   def word_params
-    params.require(:word).permit :category_id, :content, answers_attributes: [ :content, :correct]
+    params.require(:word).permit :id, :category_id, :content, answers_attributes: [ :id, :content, :correct, :word_id]
   end
 
   def load_word
