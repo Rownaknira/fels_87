@@ -11,11 +11,8 @@
   </aside>
   <div class="col-md-8">
     <%= render 'follow_form' if logged_in? %>
-    <% if @user.lessons.any? %>
-    <div class="activity">
-      <h3><%= t('activity.activity') %></h3>
+    <% if @user.activities.any? %>
       <%= render "user_activity" %>
-    </div>
     <% end %>
   </div>
 </div>

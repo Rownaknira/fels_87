@@ -12,12 +12,14 @@ class LessonsController < ApplicationController
   def create
     category = Category.find params[:lesson][:category_id]
     @lesson = category.lessons.create user_id: current_user.id
+    Activity.create_activities current_user, @lesson, Activity::TYPES[:start_lesson]
     redirect_to @lesson
   end
 
   def update
     @lesson = Lesson.find params[:id]
     if @lesson.update_attributes lesson_param
+      Activity.create_activities current_user, @lesson, Activity::TYPES[:finish_lesson]
       redirect_to categories_path
     else
       flash[:danger] = t "flashs.invalid"

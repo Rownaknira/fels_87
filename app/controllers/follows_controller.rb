@@ -5,6 +5,7 @@ class FollowsController < ApplicationController
     follower = current_user
     followee = User.find params[:id]
     if follower.follow followee
+      Activity.create_activities follower, followee, Activity::TYPES[:follow_user]
       redirect_to followee
     else
       flash[:alert] = t 'follow_message'
@@ -16,6 +17,7 @@ class FollowsController < ApplicationController
     follower = current_user
     followee = User.find params[:id]
     if follower.unfollow followee
+      Activity.create_activities follower, followee, Activity::TYPES[:unfollow_user]
       redirect_to followee
     else
       flash[:alert] = t 'Unfollow_message'
